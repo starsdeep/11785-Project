@@ -1,0 +1,49 @@
+---
+# basic configuration
+MXNET_VERSION: "mxnet_v1.0.0"
+gpus: '0'
+plot: False
+cudnn_tune: 'off'
+workspace: 512
+batch_per_device: 4
+# input and output
+output: "/mnt/truenas/scratch/xiuye/cvpr19_ckpt/ava_base_debug"
+
+df_test: '/mnt/truenas/scratch/xiuye/cvpr19/dataset/AVA_v2.1/processed_ava_val.pickle'
+df_train: '/mnt/truenas/scratch/xiuye/cvpr19/dataset/AVA_v2.1/processed_ava_train.pickle'
+#exclude_test: '/mnt/truenas/scratch/xiuye/cvpr19/dataset/AVA_v2.1/ava_val_excluded_v2.1.pickle'
+#exclude_train: '/mnt/truenas/scratch/xiuye/cvpr19/dataset/AVA_v2.1/ava_train_excluded_v2.1.pickle'
+
+pretrained: '/mnt/truenas/scratch/yikangliao/pretrained_models/r2.5d_d18_l16.pkl'
+# network related params
+model_depth: 18
+pooled_size: 10
+final_spatial_kernel: 5
+spatial_scale: 8
+temporal_scale: 4
+n_frame: 16
+num_class: 80
+scale_w: 180
+scale_h: 144
+n_bbox: 1
+# training related params
+num_epoch: 100
+optimizer: 'sgd'
+lr: 0.00005
+lr_step: 0
+lr_factor: 0.1
+warmup: False
+warmup_lr: 0
+warmup_step: 0
+momentum: 0.9
+bn_mom: 0.9
+wd: 0.005
+begin_epoch: 0
+model_prefix: 'test'
+
+# say, timestamp is T, then sample from time [T-sample_half_time, T+sample_half_time]
+sample_half_time: 1.
+
+debug: False
+debug_dataloader: False
+
